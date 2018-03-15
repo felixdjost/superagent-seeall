@@ -1,5 +1,5 @@
 # superagent-seeall
-logs details (http headers and body) of your superagent calls (with a one-line monkey patching)
+logs request and response details (http headers and body) of your superagent calls (with a one-line monkey patching)
 
 ## installation
 
