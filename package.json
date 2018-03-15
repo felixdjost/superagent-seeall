@@ -1,0 +1,28 @@
+{
+  "name": "superagent-seeall",
+  "version": "0.9.1",
+  "description": "log detailed request and response (url, params, headers, body) for all superagent calls with a one-line change in your code",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "standard",
+    "test": "standard && tape test/test*.js",
+    "qtest": "tape test/test-customLogger.js",
+    "get-module-version": "node -p \"require('./package.json').version\"",
+    "get-service-name": "node -p \"require('./package.json').name\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felixdjost/superagent-seeall"
+  },
+  "author": "Felix Jost <felix.d.jost@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "superagent": "^3.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "standard": "^10.0.3",
+    "tape": "^4.7.0"
+  }
+}
