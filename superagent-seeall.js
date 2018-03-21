@@ -10,7 +10,8 @@ module.exports = function settings (superagent, reqLogger, respLogger) {
     if (reqLogger) {
       reqLogger(debugreq)
     } else {
-      console.log(':::::: superagent request :::: \n' + JSON.stringify(debugreq, null, 2))
+      let h = formatHeaders(debugreq.headers)
+      console.log(':::::: superagent request :::: \n' + h + '\n' + JSON.stringify(debugreq, null, 2))
     }
     oldEnd.call(this, cb)
   }
@@ -21,10 +22,21 @@ module.exports = function settings (superagent, reqLogger, respLogger) {
     if (respLogger) {
       respLogger(res)
     } else {
-      console.log(':::::: superagent response :::: ' + res.statusCode + '\n' + (isjson === true ? JSON.stringify(res.body, null, 2) : res.text))
+      let h = formatHeaders(res.headers)
+      console.log(':::::: superagent response :::: ' + res.statusCode + '\n' + h + '\n' + (isjson === true ? JSON.stringify(res.body, null, 2) : res.text))
     }
     oldEndResp.call(this, err, res)
   }
   // end monkey-patch
   return superagent
+
+  function formatHeaders (p) {
+    let hdrs = ''
+    for (var key in p) {
+      if (p.hasOwnProperty(key)) {
+        hdrs += 'header: ' + key + ' -> ' + p[key] + '\n'
+      }
+    }
+    return hdrs
+  }
 }
