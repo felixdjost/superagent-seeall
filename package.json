@@ -1,6 +1,6 @@
 {
   "name": "superagent-seeall",
-  "version": "0.9.3",
+  "version": "0.9.5",
   "description": "log detailed request and response (url, params, headers, body) for all superagent calls with a one-line change in your code",
   "main": "superagent-seeall.js",
   "scripts": {
